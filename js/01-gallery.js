@@ -1,8 +1,6 @@
 import { galleryItems } from './gallery-items.js';
 // Change code below this line
 
-console.log(galleryItems);
-
 const galleryDivEl = document.querySelector('.gallery');
 
 const addImgsToGallery = arr => {
@@ -18,3 +16,19 @@ const addImgsToGallery = arr => {
 };
 
 addImgsToGallery(galleryItems);
+
+const onGalleryDivElClick = event => {
+  const { target } = event;
+  if (target.nodeName !== 'IMG') {
+    return;
+  }
+
+  const newSrc = target.dataset.origSize;
+  const instance = basicLightbox.create(`
+    <img src='${newSrc}' width='800' height='600'>
+`);
+
+  instance.show();
+};
+
+galleryDivEl.addEventListener('click', onGalleryDivElClick);
