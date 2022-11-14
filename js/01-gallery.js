@@ -18,6 +18,7 @@ const addImgsToGallery = arr => {
 addImgsToGallery(galleryItems);
 
 const onGalleryDivElClick = event => {
+  event.preventDefault();
   const { target } = event;
   if (target.nodeName !== 'IMG') {
     return;
