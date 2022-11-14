@@ -30,6 +30,15 @@ const onGalleryDivElClick = event => {
 `);
 
   instance.show();
+
+  const onModaleKeyDown = event => {
+    if (event.code === 'Escape') {
+      instance.close();
+      document.removeEventListener('keydown', onModaleKeyDown);
+    }
+  };
+
+  document.addEventListener('keydown', onModaleKeyDown);
 };
 
 galleryDivEl.addEventListener('click', onGalleryDivElClick);
