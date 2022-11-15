@@ -17,15 +17,4 @@ const addImgsToGallery = arr => {
 
 addImgsToGallery(galleryItems);
 
-const onGalleryDivElClick = event => {
-  const { target } = event;
-  if (target.nodeName !== 'IMG') {
-    return;
-  }
-
-  event.preventDefault();
-
-  let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });
-};
-
-galleryDivEl.addEventListener('click', onGalleryDivElClick);
+new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });
